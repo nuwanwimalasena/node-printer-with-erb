@@ -14,5 +14,7 @@
     "postinstall": "yarn electron-rebuild"
   },
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {
+    "@thiagoelg/node-printer": "^0.5.5"
+  }
 }

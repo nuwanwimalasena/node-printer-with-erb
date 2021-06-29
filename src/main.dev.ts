@@ -11,10 +11,11 @@
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import path from 'path';
-import { app, BrowserWindow, shell } from 'electron';
+import { app, BrowserWindow, ipcMain, shell } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
+import startServices from './system';
 
 export default class AppUpdater {
   constructor() {
@@ -76,7 +77,7 @@ const createWindow = async () => {
       nodeIntegration: true,
     },
   });
-
+  startServices(ipcMain);
   mainWindow.loadURL(`file://${__dirname}/index.html`);
 
   // @TODO: Use 'ready-to-show' event
